@@ -1,0 +1,8 @@
+(require 'package)
+    (package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(require 'evil)
+    (evil-mode 1)
+(global-linum-mode t)
+(load-theme 'gruvbox t)
+(require 'helm-config)
