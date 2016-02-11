@@ -59,3 +59,6 @@
 
 ;; enable gitgutter
 (global-git-gutter-mode +1)
+
+;; magit-status keybind
+(global-set-key (kbd "C-c g") 'magit-status)
