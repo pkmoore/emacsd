@@ -36,7 +36,7 @@
  )
 
 ;; set appropriate theme (must occurr after the custom safe themes stuff)
-(load-theme 'solarized-dark)
+(load-theme 'manoj-dark)
 
 ;; disable the startup message buffer
 (setq inhibit-startup-message t)
@@ -48,3 +48,14 @@
 ;; the existing buffer on startup
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
+
+;; hilight text past the 80th column
+(column-enforce-mode 1)
+
+;; configure C indenting style
+(setq-default c-default-style "stroustrup"
+	      c-basic-offset 4
+	      indent-tabs-mode nil)
+
+;; enable gitgutter
+(global-git-gutter-mode +1)
