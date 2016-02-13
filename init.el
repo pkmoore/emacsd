@@ -14,6 +14,7 @@
 
 ;; enable line numbers all the time
 (global-linum-mode t)
+(setq-default linum-format "%d ")
 
 ;; enable and configure projectile-related stuff
 (projectile-global-mode)
@@ -49,16 +50,26 @@
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
-;; hilight text past the 80th column
-(column-enforce-mode 1)
+;; configure C style
 
-;; configure C indenting style
+(defun my-c-hook ()
+  (fci-mode)
+  (setq fill-column 80))
+
 (setq-default c-default-style "stroustrup"
 	      c-basic-offset 4
 	      indent-tabs-mode nil)
+(add-hook 'c-mode-hook 'my-c-hook)
+
+;; configure Python style
+
+(defun my-python-hook ()
+  (fci-mode)
+  (setq fill-column 80))
+(add-hook 'python-mode-hook 'my-python-hook)
 
 ;; enable gitgutter
-(global-git-gutter-mode +1)
+(global-git-gutter+-mode)
 
 ;; magit-status keybind
 (global-set-key (kbd "C-c g") 'magit-status)
