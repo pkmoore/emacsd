@@ -3,14 +3,34 @@
     (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;;========== helper functions ==========
+
+;; Check if system is Darwin/Mac OS X
+(defun system-type-is-darwin ()
+(interactive)
+"Return true if system is darwin-based (Mac OS X)"
+(string-equal system-type "darwin"))
+
+
+;; Check if system is GNU/Linux
+(defun system-type-is-gnu ()
+(interactive)
+"Return true if system is GNU/Linux-based"
+(string-equal system-type "gnu/linux"))
+
+;; ========== configuration ==========
+
 ;; enable and configure evil mode
 (require 'evil)
     (evil-mode 1)
 
 ;; enable and configure helm
 (require 'helm-config)
-    (helm-mode 1)
-    (global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+(require 'helm-fuzzier)
+(helm-fuzzier-mode 1)
 
 ;; enable line numbers all the time
 (global-linum-mode t)
@@ -18,8 +38,8 @@
 
 ;; enable and configure projectile-related stuff
 (projectile-global-mode)
-    (setq projectile-completion-system 'helm)
-    (helm-projectile-on)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -64,6 +84,16 @@
 ;; configure Python style
 
 (defun my-python-hook ()
+  (fci-mode)
+  (setq fill-column 80))
+(add-hook 'python-mode-hook 'my-python-hook)
+
+;; configure Latex style and path
+(if (system-type-is-darwin)
+    (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
+    (setq exec-path (append exec-path '("/Library/TeX/texbin"))))
+
+(defun my-latex-hook ()
   (fci-mode)
   (setq fill-column 80))
 (add-hook 'python-mode-hook 'my-python-hook)
