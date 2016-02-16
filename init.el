@@ -1,6 +1,6 @@
 (require 'generic-x)
 (require 'package)
-    (package-initialize)
+(package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;;========== helper functions ==========
@@ -10,7 +10,6 @@
 (interactive)
 "Return true if system is darwin-based (Mac OS X)"
 (string-equal system-type "darwin"))
-
 
 ;; Check if system is GNU/Linux
 (defun system-type-is-gnu ()
@@ -48,16 +47,17 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("37def0fac11a4890922af9febc8394e3b6e3c68904a294a2d440b1904e979c7e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
+    ("4ab86c7682db09485a6e046ee0a6c45b5462f514c89844f4ed8b329aa1708067" "37def0fac11a4890922af9febc8394e3b6e3c68904a294a2d440b1904e979c7e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(helm-selection ((t (:background "Orange" :foreground "black"))))
+ '(minibuffer-prompt ((t (:foreground "Orange")))))
 
 ;; set appropriate theme (must occurr after the custom safe themes stuff)
-(load-theme 'manoj-dark)
+(load-theme 'idea-darkula)
 
 ;; disable the startup message buffer
 (setq inhibit-startup-message t)
@@ -103,3 +103,7 @@
 
 ;; magit-status keybind
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; powerline
+(require 'powerline)
+(powerline-evil-vim-color-theme)
