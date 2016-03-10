@@ -81,19 +81,21 @@
 	      indent-tabs-mode nil)
 (add-hook 'c-mode-hook 'my-c-hook)
 
-;; configure Python style
-
-(defun my-python-hook ()
-  (fci-mode)
-  (setq fill-column 80))
-(add-hook 'python-mode-hook 'my-python-hook)
-
 ;; configure Latex style and path
 (if (system-type-is-darwin)
     (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
     (setq exec-path (append exec-path '("/Library/TeX/texbin"))))
 
 (defun my-latex-hook ()
+  (fci-mode)
+  (setq fill-column 80)
+  (setq TeX-PDF-mode t))
+
+(add-hook 'LaTeX-mode-hook 'my-latex-hook)
+
+;; configure Python style
+
+(defun my-python-hook ()
   (fci-mode)
   (setq fill-column 80))
 (add-hook 'python-mode-hook 'my-python-hook)
