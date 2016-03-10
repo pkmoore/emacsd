@@ -28,9 +28,6 @@
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-(require 'helm-fuzzier)
-(helm-fuzzier-mode 1)
-
 ;; enable line numbers all the time
 (global-linum-mode t)
 (setq-default linum-format "%d ")
