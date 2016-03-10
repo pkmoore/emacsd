@@ -29,8 +29,8 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; enable line numbers all the time
-(global-linum-mode t)
-(setq-default linum-format "%d ")
+(global-nlinum-mode t)
+(setq-default nlinum-format " %d ")
 
 ;; enable and configure projectile-related stuff
 (projectile-global-mode)
@@ -94,9 +94,6 @@
   (fci-mode)
   (setq fill-column 80))
 (add-hook 'python-mode-hook 'my-python-hook)
-
-;; enable gitgutter
-(global-git-gutter+-mode)
 
 ;; magit-status keybind
 (global-set-key (kbd "C-c g") 'magit-status)
