@@ -30,7 +30,11 @@
 
 ;; enable line numbers all the time
 (global-nlinum-mode t)
-(setq-default nlinum-format " %d ")
+(setq-default nlinum-format "%d ")
+
+;;
+(global-diff-hl-mode t)
+(diff-hl-margin-mode t)
 
 ;; enable and configure projectile-related stuff
 (projectile-global-mode)
