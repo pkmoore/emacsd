@@ -33,6 +33,8 @@
 ;; enable line numbers all the time
 ;;(global-nlinum-mode t)
 ;;(setq-default nlinum-format "%d ")
+(linum-relative-global-mode)
+(helm-linum-relative-mode)
 
 ;; enable and configure projectile-related stuff
 (projectile-global-mode)
@@ -74,7 +76,8 @@
 
 (defun my-c-hook ()
   (fci-mode)
-  (setq fill-column 80))
+  (setq fill-column 80)
+  (helm-cscope-mode))
 
 (setq-default c-default-style "stroustrup"
 	      c-basic-offset 4
@@ -97,7 +100,7 @@
 
 (defun my-python-hook ()
   (fci-mode)
-  (setq fill-column 80)
+  (setq fill-column 79)
   (flycheck-mode))
 (add-hook 'python-mode-hook 'my-python-hook)
 
