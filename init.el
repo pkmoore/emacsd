@@ -96,6 +96,14 @@
 
 (add-hook 'LaTeX-mode-hook 'my-latex-hook)
 
+;; configure Ruby style
+
+(defun my-ruby-hook ()
+  (fci-mode)
+  (setq fill-column 80)
+  (rubocop-mode))
+(add-hook 'ruby-mode-hook 'my-ruby-hook)
+
 ;; configure Python style
 
 (defun my-python-hook ()
