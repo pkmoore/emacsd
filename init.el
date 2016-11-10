@@ -97,6 +97,14 @@
 
 (add-hook 'LaTeX-mode-hook 'my-latex-hook)
 
+;; configure Ruby style
+
+(defun my-ruby-hook ()
+  (fci-mode)
+  (setq fill-column 80)
+  (rubocop-mode))
+(add-hook 'ruby-mode-hook 'my-ruby-hook)
+
 ;; configure Python style
 
 (defun my-python-hook ()
@@ -123,3 +131,10 @@
 ;; Auto save file configuration
 (setq auto-save-file-name-transforms
             `((".*" "~/.emacs.d/autosave" t)))
+;; neotree
+(add-hook 'neotree-mode-hook
+  (lambda ()
+    (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+    (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+    (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+    (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
