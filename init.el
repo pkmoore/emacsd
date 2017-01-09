@@ -49,6 +49,7 @@
  '(custom-safe-themes
    (quote
     ("82b67c7e21c3b12be7b569af7c84ec0fb2d62105629a173e2479e1053cff94bd" "4ab86c7682db09485a6e046ee0a6c45b5462f514c89844f4ed8b329aa1708067" "37def0fac11a4890922af9febc8394e3b6e3c68904a294a2d440b1904e979c7e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(linum-format (quote dynamic))
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -121,6 +122,17 @@
 (require 'powerline)
 (powerline-evil-vim-color-theme)
 
+;; Backup file configuration
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5)    ; and how many of the old
+
+;; Auto save file configuration
+(setq auto-save-file-name-transforms
+            `((".*" "~/.emacs.d/autosave" t)))
 ;; neotree
 (add-hook 'neotree-mode-hook
   (lambda ()
