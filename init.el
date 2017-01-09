@@ -86,8 +86,10 @@
 
 ;; configure Latex style and path
 (if (system-type-is-darwin)
-    (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
-    (setq exec-path (append exec-path '("/Library/TeX/texbin"))))
+    (progn
+        (setenv "PATH" "/usr/local/Cellar/node/6.2.1/bin:/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
+        (setq exec-path (append exec-path '("/Library/TeX/texbin")))
+        (setq exec-path (append exec-path '("/usr/local/Cellar/node/6.2.1/bin")))))
 
 (defun my-latex-hook ()
   (fci-mode)
