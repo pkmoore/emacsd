@@ -48,7 +48,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("82b67c7e21c3b12be7b569af7c84ec0fb2d62105629a173e2479e1053cff94bd" "4ab86c7682db09485a6e046ee0a6c45b5462f514c89844f4ed8b329aa1708067" "37def0fac11a4890922af9febc8394e3b6e3c68904a294a2d440b1904e979c7e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("227edf860687e6dfd079dc5c629cbfb5c37d0b42a3441f5c50873ba11ec8dfd2" "70403e220d6d7100bae7775b3334eddeb340ba9c37f4b39c189c2c29d458543b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "82b67c7e21c3b12be7b569af7c84ec0fb2d62105629a173e2479e1053cff94bd" "4ab86c7682db09485a6e046ee0a6c45b5462f514c89844f4ed8b329aa1708067" "37def0fac11a4890922af9febc8394e3b6e3c68904a294a2d440b1904e979c7e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(linum-format (quote dynamic))
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256"))))
 (custom-set-faces
@@ -60,7 +60,7 @@
  '(minibuffer-prompt ((t (:foreground "Orange")))))
 
 ;; set appropriate theme (must occurr after the custom safe themes stuff)
-(load-theme 'idea-darkula)
+(load-theme 'darkokai)
 
 ;; disable the startup message buffer
 (setq inhibit-startup-message t)
