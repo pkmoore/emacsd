@@ -48,7 +48,8 @@
 (load custom-file 'noerror)
 
 ;; set appropriate theme (must occurr after the custom safe themes stuff)
-(load-theme 'darkokai)
+;(load-theme 'darkokai)
+(load-theme 'whiteboard)
 
 ;; disable the startup message buffer
 (setq inhibit-startup-message t)
