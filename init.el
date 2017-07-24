@@ -40,6 +40,9 @@
 
 (require 'hl-line)
 
+;; disable menu bar
+(menu-bar-mode -1)
+
 (defface my-linum-hl
   `((t :inherit linum :background ,(face-background 'hl-line nil t)))
   "Face for the current line number."
