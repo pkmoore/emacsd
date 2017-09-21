@@ -23,6 +23,13 @@
 (require 'evil)
     (evil-mode 1)
 
+;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
+(eval-after-load 'ggtags
+  '(progn
+     (evil-make-overriding-map ggtags-mode-map 'normal)
+     ;; force update evil keymaps after ggtags-mode loaded
+     (add-hook 'ggtags-mode-hook #'evil-normalize-keymaps)))
+
 ;; enable and configure helm
 (require 'helm-config)
 (helm-mode 1)
@@ -102,10 +109,10 @@
 (defun my-c-hook ()
   (fci-mode)
   (setq fill-column 80)
-  (helm-cscope-mode))
+  (ggtags-mode))
 
 (setq-default c-default-style "stroustrup"
-	      c-basic-offset 4
+	      c-basic-offset 2
 	      indent-tabs-mode nil)
 (add-hook 'c-mode-hook 'my-c-hook)
 
@@ -123,6 +130,15 @@
   (setq TeX-PDF-mode t))
 
 (add-hook 'LaTeX-mode-hook 'my-latex-hook)
+
+;; configure CPP style
+(defun my-cpp-hook ()
+  (fci-mode)
+  (setq fill-column 80)
+  (ggtags-mode))
+
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
 
 ;; configure Ruby style
 
