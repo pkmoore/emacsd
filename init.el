@@ -123,7 +123,9 @@
 
 (defun my-latex-hook ()
   (auto-fill-mode)
-  (set-fill-column 120)
+  (set-fill-column 80)
+  (flycheck-mode)
+  (flyspell-mode)
   (setq TeX-PDF-mode t))
 
 (add-hook 'LaTeX-mode-hook 'my-latex-hook)
