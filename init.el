@@ -84,6 +84,7 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+(setq projectile-find-dir-includes-top-level t)
 
 ;; store customizations in separate file
 (setq custom-file "~/.emacs.d/custom.el")
@@ -107,7 +108,6 @@
 ;; configure C style
 
 (defun my-c-hook ()
-  (fci-mode)
   (setq fill-column 80)
   (ggtags-mode))
 
@@ -133,17 +133,15 @@
 
 ;; configure CPP style
 (defun my-cpp-hook ()
-  (fci-mode)
   (setq fill-column 80)
-  (ggtags-mode))
+  (helm-gtags-mode))
 
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(add-hook 'c++-mode-hook 'my-cpp-hook)
 
 
 ;; configure Ruby style
 
 (defun my-ruby-hook ()
-  (fci-mode)
   (setq fill-column 80)
   (rubocop-mode))
 (add-hook 'ruby-mode-hook 'my-ruby-hook)
@@ -151,7 +149,6 @@
 ;; configure Python style
 
 (defun my-python-hook ()
-  (fci-mode)
   (setq fill-column 79)
   (flycheck-mode))
 (add-hook 'python-mode-hook 'my-python-hook)
