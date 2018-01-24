@@ -23,13 +23,6 @@
 (require 'evil)
     (evil-mode 1)
 
-;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
-(eval-after-load 'ggtags
-  '(progn
-     (evil-make-overriding-map ggtags-mode-map 'normal)
-     ;; force update evil keymaps after ggtags-mode loaded
-     (add-hook 'ggtags-mode-hook #'evil-normalize-keymaps)))
-
 ;; enable and configure helm
 (require 'helm-config)
 (helm-mode 1)
@@ -38,12 +31,17 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-c t") 'helm-gtags-find-pattern)
+(global-set-key (kbd "C-c r") 'helm-gtags-pop-stack)
 
 ;; enable line numbers all the time
 ;;(global-nlinum-mode t)
 ;;(setq-default nlinum-format "%d ")
 ;;(linum-relative-global-mode)
 ;;(helm-linum-relative-mode)
+
+;; company mode
+(add-hook 'after-init-hook 'global-company-mode)
 
 (require 'hl-line)
 
@@ -108,8 +106,7 @@
 ;; configure C style
 
 (defun my-c-hook ()
-  (setq fill-column 80)
-  (ggtags-mode))
+  (setq fill-column 80))
 
 (setq-default c-default-style "stroustrup"
 	      c-basic-offset 2
@@ -178,5 +175,4 @@
     (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
     (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
     (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
-(global-set-key (kbd "C-c t") 'neotree-toggle)
 
